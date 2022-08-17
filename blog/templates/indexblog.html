@@ -1,0 +1,104 @@
+{% extends 'test.html' %}
+
+
+{% comment %} {%load static%} {% endcomment %}
+
+{%block title%}قائمة المدونات{%endblock%}
+{%block subtitle%}جميع المدونات التي حصلت على أعلى التقييمات{%endblock%}
+{% block content %}
+
+<table class="table table-striped " style="font-size:14px;text-align:center;">
+
+  <thead>
+    <tr>
+      <th scope="col">عنوان المدونه</th>
+      <th scope="col">المحتوى  </th>
+      <th scope="col">الناشر </th>
+
+      <th scope="col">تاريخ النشر </th>
+      <th scope="col"ا>التعديل </th>
+      <th scope="col"ا>الحذف  </th>
+
+      <th scope="col"ا>الصورة الرمزية</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+      {%for x in post  %}
+    <tr>
+    
+      <td><a href="{{x.title}}"</a>{{x.title}}</td>
+            
+      <td>{{x.content}}</td>
+      <td>{{x.author}}</td>
+      <td>{{x.add_date|date:'Y-m-d ' }}</td>
+
+      <td><a class="btn btn-info" href="{%url 'edit_blog' x.pk %}">التعديل </a></td>
+        
+      <td><a class="btn btn-danger" href="{%url 'edit_blog' x.pk %}">حذف </a></td>
+
+        <td>
+      <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+        </td>
+      <td text-align="center"> <img src="{{x.image.url}}" alt="connect" width="50"height="50"></td>
+      </td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+
+
+  {%for x in post  %}
+
+ 
+  
+    {% comment %} <div class="card" >
+      <img src="{{x.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-title">{{x.title}}</p>
+        <p class="card-text">{{x.content}}</p>
+        <p class="card-text">{{x.add_date}}</p>
+    
+        <a href="#" class="btn btn-primary">مشاهدة </a>
+      </div>
+    </div>
+  
+   {% endcomment %}
+
+
+
+    <div class="col-sm-6 col-lg-4">
+      <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="{{x.image.url}}">
+          <div class="card-body info">
+              <h4 class="card-title">{{x.title}}</h4>
+              <p class="card-text">{{x.content}}</p>
+              <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+          </div>
+      </div>
+  </div>
+
+
+{%endfor%}
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+
+
+
+
+
+
