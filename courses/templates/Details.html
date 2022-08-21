@@ -1,0 +1,51 @@
+{% extends 'test.html' %}
+
+
+{% comment %} {%load static%} {% endcomment %}
+
+{%block title%}جميع كورسات الموقع{%endblock%}
+{%block subtitle%}أهم الكورسات التي يمكن الاشتراك فيها {%endblock%}
+
+{% block content %}
+
+
+ 
+
+  
+    {% comment %} {% for x in courses %} {% endcomment %}
+ 
+
+
+
+<div class="col-sm-6 col-lg-3">
+  <div class="card text-center clean-card"><img class="card-img-top w-100 d-block" src="{{courses.image_course.url}}">
+      <div class="card-body info">
+          <h4 class="card-title">{{courses.course_name}}</h4>
+          <p class="card-text">{{courses.hours}}</p>
+          <p class="card-text">{{courses.gatogery}}</p>
+
+          <p class="card-text">{{courses.user_course}}</p> </p>
+
+          <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
+      </div>
+  </div>
+</div>
+{% comment %} {%endfor%} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+
+
+
+
+
+

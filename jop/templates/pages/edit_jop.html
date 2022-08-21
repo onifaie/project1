@@ -1,0 +1,19 @@
+{% extends 'pages/mainjop.html' %}
+
+
+
+{% block content %}
+
+<div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <form method="POST" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_table }}
+        {% include 'include/form.html'%}
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+  
+    </div>
+  </div>
+  {%endblock%}

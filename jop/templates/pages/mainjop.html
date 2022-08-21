@@ -1,0 +1,56 @@
+{% extends 'pages/basejop.html' %}
+
+{% block content %}
+<h5 style="margin-top:50px;margin-button:30px;">عرض جميع المتقديمين  </h5>
+
+{% comment %} 
+{%block title%}قائمة المدونات{%endblock%}
+{%block subtitle%}جميع المدونات التي حصلت على أعلى التقييمات{%endblock%}
+{% block content %} {% endcomment %}
+
+<table class="table table-striped " style="font-size:14px;text-align:center;">
+
+  <thead>
+    <tr style="background:orange;">
+      <th scope="col">اسم الموظف</th>
+      <th scope="col">الوظيفة  </th>
+      <th scope="col">المدينة </th>
+
+      <th scope="col">الموهل  </th>
+      <th scope="col"ا>التعديل </th>
+      <th scope="col"ا>الحذف  </th>
+      <th scope="col"ا>السيرة الذاتية   </th>
+
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+      {%for x in context  %}
+    <tr>
+    
+      <td><a href="{%url 'LookingJopDetails' x.pk %}">{{x.name}}</a></td>
+            
+      <td>{{x.Kindjop}}</td>
+      <td>{{x.City_jop}}</td>
+      <td>{{x.Cetivcation }}</td>
+
+      <td><a class="btn btn-dark" href="{%url 'LookingJopDetails' x.pk %}">التعديل </a></td>
+        
+      <td><a class="btn btn-danger" href="{%url 'LookingJopDelete' x.pk %}">حذف </a></td>
+
+       
+      {% comment %} <td text-align="center"> <img src="{{x.image.url}}" alt="connect" width="50"height="50"></td> {% endcomment %}
+      </td>
+      <td><a class="btn btn-success" href="{{x.files.url}}">السيرة الذاتية </a></td>
+
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+
+
+{%endblock%}
